@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.io.IOException;
 
 public class HomeActivity extends AppCompatActivity {
-    TextView UserNameText, PhoneNoText, EmailText, GenderText, AddressText;
+    TextView UserName, PhoneNoText, EmailText, GenderText, AddressText;
     ImageView Image;
     Button BtnChooseImg;
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -47,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
 
-            UserNameText = findViewById(R.id.UserNameTextID);
+            UserName = findViewById(R.id.UserNameTextID);
             PhoneNoText = findViewById(R.id.PhoneNoTextID);
             EmailText = findViewById(R.id.EmailTextID);
             GenderText = findViewById(R.id.GenderTextID);
@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     String usernametxt = snapshot.child(username).child("UserName").getValue().toString();
-                    UserNameText.setText(usernametxt);
+                    UserName.setText(usernametxt);
 
                     String phonenotxt = snapshot.child(username).child("PhoneNo").getValue().toString();
                     PhoneNoText.setText(phonenotxt);
